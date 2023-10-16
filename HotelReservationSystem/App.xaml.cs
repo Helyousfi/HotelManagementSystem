@@ -13,7 +13,7 @@ namespace HotelReservationSystem
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : Application 
     {
         private readonly Hotel? _hotel;
         // Override the OnStartup method
