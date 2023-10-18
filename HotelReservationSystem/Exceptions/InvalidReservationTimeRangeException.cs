@@ -9,10 +9,10 @@ namespace HotelReservationSystem.Exceptions
 {
     public class InvalidReservationTimeRangeException : Exception
     {
-        public Reservation _reservation { get; }
+        public Reservation Reservation { get; }
         public InvalidReservationTimeRangeException(Reservation reservation) 
         {
-            _reservation = reservation;
+            Reservation = reservation;
         }
 
     }
