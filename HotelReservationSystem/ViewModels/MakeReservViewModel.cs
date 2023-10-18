@@ -13,6 +13,7 @@ namespace HotelReservationSystem.ViewModels
 {
     public class MakeReservViewModel : ViewModelBase
     {
+        // The username
         private string? _username;
         public string Username
         {
@@ -27,6 +28,7 @@ namespace HotelReservationSystem.ViewModels
             }
         }
 
+        // The floor number
         private int _floorNumber;
         public int FloorNumber
         {
@@ -83,6 +85,7 @@ namespace HotelReservationSystem.ViewModels
             }
         }
 
+        // Commands for submit and cancel
         public ICommand SubmitCommand { get; } // This will be initialized in the constructor
         public ICommand CancelCommand { get; }
 
