@@ -69,7 +69,7 @@ namespace HotelReservationSystem.ViewModels
             }
         }
 
-        private DateTime _endDate = new DateTime(2023, 1, 1);
+        private DateTime _endDate = new DateTime(2023, 1, 7);
         public DateTime EndDate
         {
             get

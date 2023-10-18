@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelReservationSystem.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,11 @@ namespace HotelReservationSystem.Models
         /// <param name="reservation"></param>
         public void AddReservation(Reservation reservation)
         {
-            reservations.Add(reservation);
+            if(reservation.StartTime > reservation.EndTime)
+            {
+                throw new InvalidReservationTimeRangeException(reservation);
+            }
+            reservations?.Add(reservation);
         }
     }
 }

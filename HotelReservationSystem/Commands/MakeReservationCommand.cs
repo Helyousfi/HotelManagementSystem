@@ -26,6 +26,7 @@ namespace HotelReservationSystem.Commands
 
         public override void Execute(object? parameter)
         {
+            // Create a reservation from the inputs we have in the MakeReservViewModel
             Reservation reservation = new Reservation(
                 new RoomID(_makeReservViewModel.RoomNumber,
                             _makeReservViewModel.FloorNumber),
@@ -44,7 +45,8 @@ namespace HotelReservationSystem.Commands
             }
         }
 
-        public MakeReservationCommand(MakeReservViewModel makeReservViewModel,
+        public MakeReservationCommand(
+            MakeReservViewModel makeReservViewModel,
             Hotel hotel)
         {
             _hotel = hotel;
