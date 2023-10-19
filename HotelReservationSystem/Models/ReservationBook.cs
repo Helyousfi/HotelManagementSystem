@@ -33,7 +33,14 @@ namespace HotelReservationSystem.Models
         /// <param name="reservation"></param>
         public void AddReservation(Reservation reservation)
         {
-            if(DateTime.Compare(reservation.StartTime, reservation.EndTime) > 0)
+            foreach (var existingReservation in reservations)
+            {
+                if (existingReservation.Conflict(reservation))
+                {
+                    throw new ReservationConflictException(existingReservation, reservation);
+                }
+            }
+            if (DateTime.Compare(reservation.StartTime, reservation.EndTime) > 0)
             {
                 throw new InvalidReservationTimeRangeException(reservation);
             }

@@ -45,6 +45,11 @@ namespace HotelReservationSystem.Commands
                 MessageBox.Show("This room is already taken!", "Error", 
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            catch ( InvalidReservationTimeRangeException )
+            {
+                MessageBox.Show("This room is already taken!", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public MakeReservationCommand(

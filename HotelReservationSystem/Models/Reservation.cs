@@ -21,7 +21,19 @@ namespace HotelReservationSystem.Models
             Username = username;
         }
 
-
+        public bool Conflict(Reservation reservation)
+        {
+            if (reservation.RoomID == RoomID)
+            {
+                return false;
+            }
+            if (reservation.StartTime >= StartTime && reservation.StartTime <= EndTime ||
+                reservation.EndTime <= EndTime && reservation.EndTime >= StartTime)
+            {
+                return true;
+            }
+            return false;
+        }
         
     }
 }
