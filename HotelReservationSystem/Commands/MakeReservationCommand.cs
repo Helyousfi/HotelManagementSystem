@@ -37,11 +37,13 @@ namespace HotelReservationSystem.Commands
             try
             {
                 _hotel.AddReservation(reservation);
-                MessageBox.Show("Success", "Added succusfully!", MessageBoxButton.OK);
+                MessageBox.Show("Success", "Added succusfully!", 
+                    MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch ( ReservationConflictException ) 
             {
-                MessageBox.Show("This room is already taken!");
+                MessageBox.Show("This room is already taken!", "Error", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

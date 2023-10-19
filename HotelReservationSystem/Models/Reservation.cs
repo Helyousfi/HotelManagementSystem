@@ -21,6 +21,7 @@ namespace HotelReservationSystem.Models
             Username = username;
         }
 
+
         
     }
 }
