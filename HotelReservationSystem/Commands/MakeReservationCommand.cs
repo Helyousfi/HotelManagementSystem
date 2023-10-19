@@ -58,7 +58,9 @@ namespace HotelReservationSystem.Commands
         {
             if(e.PropertyName == nameof(_makeReservViewModel.Username) || 
                 e.PropertyName == nameof(_makeReservViewModel.FloorNumber) ||
-                e.PropertyName == nameof(_makeReservViewModel.RoomNumber))
+                e.PropertyName == nameof(_makeReservViewModel.RoomNumber) ||
+                e.PropertyName == nameof(_makeReservViewModel.StartDate) ||
+                e.PropertyName == nameof(_makeReservViewModel.EndDate))
             {
                 OnCanExecuteChanged();
             }
