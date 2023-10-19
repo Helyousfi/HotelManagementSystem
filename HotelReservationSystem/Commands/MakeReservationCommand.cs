@@ -47,7 +47,7 @@ namespace HotelReservationSystem.Commands
             }
             catch ( InvalidReservationTimeRangeException )
             {
-                MessageBox.Show("This room is already taken!", "Error",
+                MessageBox.Show("Invalide dates!", "Error",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }

@@ -23,7 +23,7 @@ namespace HotelReservationSystem.Models
 
         public bool Conflict(Reservation reservation)
         {
-            if (reservation.RoomID == RoomID)
+            if (reservation.RoomID != RoomID)
             {
                 return false;
             }
