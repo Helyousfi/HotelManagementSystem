@@ -93,7 +93,7 @@ namespace HotelReservationSystem.ViewModels
         {
             // SubmitCommand takes this ViewModel and the hotel
             SubmitCommand = new MakeReservationCommand(this, hotel);
-            
+            CancelCommand = new CanecelMakeReservationCommand();
         }
 
     }

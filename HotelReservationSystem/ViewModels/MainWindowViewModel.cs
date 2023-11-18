@@ -1,4 +1,5 @@
 ﻿using HotelReservationSystem.Models;
+using HotelReservationSystem.Stores;
 using HotelReservationSystem.Views;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,18 @@ namespace HotelReservationSystem.ViewModels
 {
     class MainWindowViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; set; }
+        private readonly NavigationStore _navigationStore;
+        public ViewModelBase CurrentViewModel => 
+            _navigationStore.CurrentViewModel;
 
-        public MainWindowViewModel(Hotel hotel)
+        public MainWindowViewModel(NavigationStore navigationStore)
         {
-            CurrentViewModel = new MakeReservViewModel(hotel); // hard coded
+            _navigationStore = navigationStore;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+        }
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
         }
     }
 }
