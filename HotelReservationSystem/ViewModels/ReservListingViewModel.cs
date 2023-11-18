@@ -1,4 +1,6 @@
-﻿using HotelReservationSystem.Models;
+﻿using HotelReservationSystem.Commands;
+using HotelReservationSystem.Models;
+using HotelReservationSystem.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,7 +17,7 @@ namespace HotelReservationSystem.ViewModels
 		public IEnumerable<ReservationViewModel> Reservations => _reservations;
         public ICommand MakeReservationCommand { get; }
 
-        public ReservListingViewModel()
+        public ReservListingViewModel(NavigationStore navigationStore)
         {
             _reservations = new ObservableCollection<ReservationViewModel>();
             _reservations.Add(new ReservationViewModel(
@@ -30,6 +32,8 @@ namespace HotelReservationSystem.ViewModels
                 new Reservation(new RoomID(1, 2), DateTime.Now, DateTime.Now, "hamza")));
             _reservations.Add(new ReservationViewModel(
                 new Reservation(new RoomID(2, 5), DateTime.Now, DateTime.Now, "EL Yousfi")));
+
+            MakeReservationCommand = new NavigateCommand(navigationStore);
         }
 
     }

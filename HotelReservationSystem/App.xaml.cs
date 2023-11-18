@@ -1,4 +1,5 @@
 ﻿using HotelReservationSystem.Models;
+using HotelReservationSystem.Stores;
 using HotelReservationSystem.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,15 +18,18 @@ namespace HotelReservationSystem
     {
         private readonly Hotel? _hotel;
         // Override the OnStartup method
+        private readonly NavigationStore? _navigationStore;
         public App()
         {
             _hotel = new Hotel("Hamza Hotel", "Argenteuil");
+            _navigationStore = new NavigationStore();
         }
         protected override void OnStartup(StartupEventArgs e)
         {
+            _navigationStore.CurrentViewModel = new ReservListingViewModel(_navigationStore);
             MainWindow = new MainWindow()
             {
-                DataContext = new MainWindowViewModel(_hotel)
+                DataContext = new MainWindowViewModel(_navigationStore)
             };
             MainWindow.Show();
             base.OnStartup(e);
