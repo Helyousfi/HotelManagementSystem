@@ -1,5 +1,6 @@
 ﻿using HotelReservationSystem.Commands;
 using HotelReservationSystem.Models;
+using HotelReservationSystem.Stores;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -89,11 +90,11 @@ namespace HotelReservationSystem.ViewModels
         public ICommand SubmitCommand { get; } // This will be initialized in the constructor
         public ICommand CancelCommand { get; }
 
-        public MakeReservViewModel(Hotel hotel)
+        public MakeReservViewModel(Hotel hotel, NavigationStore navigationStore)
         {
             // SubmitCommand takes this ViewModel and the hotel
             SubmitCommand = new MakeReservationCommand(this, hotel);
-            CancelCommand = new CanecelMakeReservationCommand();
+            CancelCommand = new CanecelMakeReservationCommand(navigationStore, hotel);
         }
 
     }
