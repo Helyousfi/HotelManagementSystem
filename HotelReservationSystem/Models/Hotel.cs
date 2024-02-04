@@ -30,5 +30,10 @@ namespace HotelReservationSystem.Models
         {
             _reservationBook.AddReservation(reservation);
         }
+
+        public void DeleteReservation(Reservation reservation)
+        {
+            _reservationBook.DeleteReservation(reservation);
+        }
     }
 }
