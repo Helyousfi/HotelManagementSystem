@@ -12,16 +12,30 @@
     Height="450"
     mc:Ignorable="d">
     <Grid>
+        <!--  Associating a ViewModel with its corresponding view  -->
         <Grid.Resources>
+
+            <!--
+                It states that when the content of the
+                ContentControl is of type MakeReservViewModel,
+                it should be presented using the MakeReservView.
+            -->
             <DataTemplate DataType="{x:Type vms:MakeReservViewModel}">
                 <views:MakeReservView />
             </DataTemplate>
+
+            <!--
+                Similarly, It states that when the content of the
+                ContentControl is of type ReservListingViewModel,
+                it should be presented using the ReservListingView.
+            -->
             <DataTemplate DataType="{x:Type vms:ReservListingViewModel}">
                 <views:ReservListingView />
             </DataTemplate>
+
         </Grid.Resources>
 
-
         <ContentControl Content="{Binding CurrentViewModel}" />
+
     </Grid>
 </Window>
